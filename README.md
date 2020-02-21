@@ -15,6 +15,6 @@ which should result in more efficient algorithm.
 
 The second method sorts the gradesPart array.
 Finds the middle element with gradesPart.length/2 and checks whether the array is odd or even.
-If the array.length is even, algorithm gets the two numbers in the middle, sums them and divides them by two and returns it.
+If the array.length is even, algorithm gets the two numbers in the middle, sums them and adds 1 (rounding the median up to the nearest integer), divides them by two and returns it.
 if its odd, it gets the middle element of an array and returns it.
 
