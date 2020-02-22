@@ -1,23 +1,19 @@
- # Explanation
+# Explanation
+ 
+ 
+The code consists of two methods.
 
-The Application consists of a couple of Parts.
+Method getArrayOfMedian() which takes an int array as an argument and returns an int array.
+Method getMedian() which takes an int array as an arguments and returns an int.
 
-1. Data - which consists of DiscountCards Package, Customer and Purchase classes.
-2. StorePayDesk - consists of a DeskCalculator and PayDesk class.
-3. Main class as en Entry Point.
+In the first method, i have created a new int array with a length of grades.length which contains the end result.
+Algorithm iterates over the grades array and sets each element of the container array by calling getMedian() and passing a part of grades array
+as an argument using Arrays.CopyOfRange. 
 
-In the application Main class (Entry Point) i created an instances of a three different customers and three different DiscountCard classes 
-Bronze, Silver and Gold. 
+I am using Arrays.CopyOfRange so i don't have to sort the entire array, only a part of it, so zeroes don't get sorted, 
+which should result in more efficient algorithm.
 
-Each Customer has customerId, customerName and DiscountCard fields.
-
-Each of the DiscountCard child classes extend DiscountCard abstract class. DiscountRate of a single card is calculated during making an instance of a class by running the code in its constructor. There is also a Guest class whichis used in case the discount card field of a customer is null.
-
-Running a static method commitPurchase() of a PayDesk class, with "purchaseValue" and Customer object as arguments, we get console output as reguested.
-
-PayDesk class has two helper methods, calculatePurchase() which uses DeskCalculator and makes an instance of a Purchase class and 
-printReceipt() method which gets info from a DiscountCard and Purchase objects and prints them on a console.
-
-
-
-
+The second method sorts the gradesPart array.
+Finds the middle element with gradesPart.length/2 and checks whether the array is odd or even.
+If the array.length is even, algorithm gets the two numbers in the middle, sums them and adds 1 (rounding the median up to the nearest integer), divides them by two and returns it.
+if its odd, it gets the middle element of an array and returns it.
