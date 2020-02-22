@@ -1,11 +1,11 @@
 package com.MarketStore;
 
-import com.MarketStore.DiscountCards.BronzeDiscountCard;
-import com.MarketStore.DiscountCards.DiscountCard;
-import com.MarketStore.DiscountCards.GoldDiscountCard;
-import com.MarketStore.DiscountCards.SilverDiscountCard;
-import com.MarketStore.PayDesk.Customer;
-import com.MarketStore.PayDesk.PayDesk;
+import com.MarketStore.Data.DiscountCards.BronzeDiscountCard;
+import com.MarketStore.Data.DiscountCards.DiscountCard;
+import com.MarketStore.Data.DiscountCards.GoldDiscountCard;
+import com.MarketStore.Data.DiscountCards.SilverDiscountCard;
+import com.MarketStore.Data.Customer;
+import com.MarketStore.StorePayDesk.PayDesk;
 
 public class Main {
 
