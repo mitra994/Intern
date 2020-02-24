@@ -51,7 +51,7 @@ public class PayDesk {
     }
 
 
-    public static void checkOut(double purchaseValue, Customer customer){
+    public static void checkout(double purchaseValue, Customer customer){
         PayDesk desk = new PayDesk();
         if(purchaseValue<0){
             System.out.println("Purchase value can't be less than 0");
