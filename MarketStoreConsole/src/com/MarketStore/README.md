@@ -1,21 +1,25 @@
 # Explanation
  
  
-The Application consists of a couple of Parts.
+Market Store application consists of Data,PayDesk and Main as an Entry Point.
 
-1. Data - which consists of DiscountCards Package, Customer and Purchase classes.
-2. StorePayDesk - consists of a DeskCalculator and PayDesk class.
-3. Main class as en Entry Point.
+1.In the Data package there a DiscountCards, Customers and Purchase classes.
 
-In the application Main class (Entry Point) i created an instances of a three different customers and three different DiscountCard classes 
-Bronze, Silver and Gold. 
+DiscountCard package consists of:
 
-Each Customer has customerId, customerName and DiscountCard fields.
+-DiscountCard abstract class with fields (CustomerName,
+turnover and discountRate). DiscountCard as a parent class also has three abstract
+methods getCardType, calculateDiscountRate and setTurnover.
 
-Each of the DiscountCard child classes extend DiscountCard abstract class. DiscountRate of a single card is calculated during making an instance of a class by running the code in its constructor. There is also a Guest class whichis used in case the discount card field of a customer is null.
+The idea behind this was so that each child class can has its own calculateDiscountRate method based on the card type and so
+that calculateDiscountRate() can be called each time turnover is set, so each times turnover changes, discountRate get recalculated.
 
-Running a static method commitPurchase() of a PayDesk class, with "purchaseValue" and Customer object as arguments, we get console output as reguested.
+-DiscountCard child classes which extend the abstract class and implement abstract methods.
 
-PayDesk class has two helper methods, calculatePurchase() which uses DeskCalculator and makes an instance of a Purchase class and 
-printReceipt() method which gets info from a DiscountCard and Purchase objects and prints them on a console.
+2.PayDesk class has a static method checkOut() which takes a double (purchaseValue) and Customer object as arguments.
+Using DeskCalculator class and calculatePurchase() method, calculates a discount and Total and makes a new instance of Purchase class.
+printRecepit() method uses a Purchase instance and info from the card to print a receipt.
 
+3. Main class as EntryPoint. 
+I first made an instance of a Customer objects with id,name, next, and instances of DiscountCard objects and changed their turover value (cards have a default turover of 0 when instatiated).
+Calling PayDesk.checkout() method double purchaseValue and Customer as arguments we get output on a console. If the Customer doesn't have DiscountCard assosiated with it, PayDesk will print Guest receipt
