@@ -30,9 +30,9 @@ public class Main {
         goldCustomer.setDiscountCard(goldCard);
 
 
-        PayDesk.checkOut(150,bronzeCustomer);
-        PayDesk.checkOut(850,silverCustomer);
-        PayDesk.checkOut(1300,goldCustomer);
+        PayDesk.checkout(150,bronzeCustomer);
+        PayDesk.checkout(850,silverCustomer);
+        PayDesk.checkout(1300,goldCustomer);
 
 
     }
