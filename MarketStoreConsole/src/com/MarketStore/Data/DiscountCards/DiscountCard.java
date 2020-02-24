@@ -9,9 +9,8 @@ public abstract class DiscountCard {
     private double discountRate;
     private double lastMonthTurnover;
 
-    protected DiscountCard(Customer cardOwner,double lastMonthTurnover){
+    protected DiscountCard(Customer cardOwner){
         this.cardOwner = cardOwner;
-        this.lastMonthTurnover = lastMonthTurnover;
     }
 
     protected DiscountCard(){
@@ -19,6 +18,10 @@ public abstract class DiscountCard {
     }
 
     public abstract String getCardType();
+
+    protected abstract void calculateDiscountRate();
+
+    public abstract void setTurnover(double turnover);
 
     public Customer getCardOwner() {
         return cardOwner;
@@ -36,7 +39,7 @@ public abstract class DiscountCard {
         return lastMonthTurnover;
     }
 
-    public void setLastMonthTurnover(double lastMonthTurnover) {
+    protected void setLastMonthTurnover(double lastMonthTurnover) {
         this.lastMonthTurnover = lastMonthTurnover;
     }
 }
