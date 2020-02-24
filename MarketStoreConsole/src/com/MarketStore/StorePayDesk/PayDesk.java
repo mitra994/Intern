@@ -36,11 +36,28 @@ public class PayDesk {
 
     }
 
+
+    private void printReceiptGuest(double purchaseValue){
+
+
+        System.out.println("------------RECEIPT--------------");
+        System.out.println("Welcome Guest");
+        System.out.println("Your purchase value: " +purchaseValue + "$");
+        System.out.println("Discount Rate: " + 0 + "%");
+        System.out.println("Your discount is: " + 0+"$");
+        System.out.println("Your final receipt is: " + purchaseValue + "$");
+        System.out.println("---------------------------------");
+
+    }
+
+
     public static void checkOut(double purchaseValue, Customer customer){
         PayDesk desk = new PayDesk();
         if(purchaseValue<0){
             System.out.println("Purchase value can't be less than 0");
-        }else{
+        }else if(customer.getDiscountCard()==null){
+            desk.printReceiptGuest(purchaseValue);
+        } else{
             desk.printRecepint(purchaseValue,customer);
         }
 
