@@ -13,23 +13,26 @@ public class Main {
 
         /// Customer John with Bronze Discount Card
         Customer bronzeCustomer = new Customer(1,"John");
-        DiscountCard bronzeCard = new BronzeDiscountCard(bronzeCustomer,0);
+        DiscountCard bronzeCard = new BronzeDiscountCard(bronzeCustomer);
+        bronzeCard.setTurnover(0);
         bronzeCustomer.setDiscountCard(bronzeCard);
 
         //Customer Bob with Silver Discount Card
         Customer silverCustomer = new Customer(2,"Bob");
-        DiscountCard silverCard = new SilverDiscountCard(silverCustomer,600);
+        DiscountCard silverCard = new SilverDiscountCard(silverCustomer);
+        silverCard.setTurnover(600);
         silverCustomer.setDiscountCard(silverCard);
 
         //Customer Mike with GoldDiscountCard
         Customer goldCustomer = new Customer(3,"Mike");
-        DiscountCard goldCard = new GoldDiscountCard(goldCustomer,1500);
+        DiscountCard goldCard = new GoldDiscountCard(goldCustomer);
+        goldCard.setTurnover(1500);
         goldCustomer.setDiscountCard(goldCard);
 
 
-        PayDesk.commitPurchase(150,bronzeCustomer);
-        PayDesk.commitPurchase(850,silverCustomer);
-        PayDesk.commitPurchase(1300,goldCustomer);
+        PayDesk.checkOut(150,bronzeCustomer);
+        PayDesk.checkOut(850,silverCustomer);
+        PayDesk.checkOut(1300,goldCustomer);
 
 
     }
