@@ -3,7 +3,7 @@ package com.MarketStore.StorePayDesk;
 import com.MarketStore.Data.Customer;
 import com.MarketStore.Data.Purchase;
 import com.MarketStore.Data.DiscountCards.DiscountCard;
-import com.MarketStore.Data.DiscountCards.Guest;
+
 
 public class PayDesk {
 
@@ -22,9 +22,6 @@ public class PayDesk {
 
     private void printRecepint(double purchaseValue, Customer customer){
 
-        if(customer.getDiscountCard() == null){
-            customer.setDiscountCard(new Guest());
-        }
 
         calculatePurchase(purchaseValue,customer.getDiscountCard());
 
@@ -38,7 +35,8 @@ public class PayDesk {
         System.out.println("---------------------------------");
 
     }
-    public static void commitPurchase(double purchaseValue, Customer customer){
+
+    public static void checkOut(double purchaseValue, Customer customer){
         PayDesk desk = new PayDesk();
         if(purchaseValue<0){
             System.out.println("Purchase value can't be less than 0");
