@@ -20,7 +20,7 @@ public class PayDesk {
 
     }
 
-    private void printRecepint(double purchaseValue, Customer customer){
+    private void printReceipt(double purchaseValue, Customer customer){
 
 
         calculatePurchase(purchaseValue,customer.getDiscountCard());
@@ -37,7 +37,7 @@ public class PayDesk {
     }
 
 
-    private void printReceiptGuest(double purchaseValue){
+    private void printReceipt(double purchaseValue){
 
 
         System.out.println("------------RECEIPT--------------");
@@ -56,9 +56,9 @@ public class PayDesk {
         if(purchaseValue<0){
             System.out.println("Purchase value can't be less than 0");
         }else if(customer.getDiscountCard()==null){
-            desk.printReceiptGuest(purchaseValue);
+            desk.printReceipt(purchaseValue);
         } else{
-            desk.printRecepint(purchaseValue,customer);
+            desk.printReceipt(purchaseValue,customer);
         }
 
     }
