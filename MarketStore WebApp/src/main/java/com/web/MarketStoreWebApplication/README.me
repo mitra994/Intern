@@ -1,0 +1,37 @@
+# Built With
+
+Intellij Ultimate
+Maven
+Spring-Boot
+Spring JPA (Hibernate)
+H2 in memory
+
+# Explanation
+
+My idea was to create a web application based on the assignment from internship.
+
+Customers have options to register or purchase from the store as guests.
+
+Registration is done by sending a POST request on /register url with parameters username,password and cardType.
+(/register?username=name&password=pass&cardType=gold).
+cardType parameter can only be gold, silver or bronze.
+
+Registered users can login by sending a POST request on /login with username and password as parameters.
+
+Logged in customers can access /customer url where they can see their DiscountCard type, Turnover and DiscountRate.
+When logged in, customer has an option to change card type by sending a GET request on /customer/switch with parameter cardType, also
+sending a GET request on /customer/turnover with parameter value, customer can change Turnover value stored in a card (Those two function are mainly for testing)
+
+App has a basic filter which prevents non logged in users from acessing /customer/* url.
+
+Sending GET request on /store url, which is acessible by both registered customers and guest, shows a list of available products.
+Customers have options to: 
+-Add products to a card (GET request /store/add?itemName=?)
+-Look at the cart (GET request on /store/cart)
+-Remove items from the card(/store/remove?itemName=?)
+-See the final recepit/checkout (/store/checkout)
+- And purchase (/store/checkout/accept)
+
+If the customer is registered, every purchase will add to his turnover and recalculate the discountRate.
+
+Customer class is mapped with DiscountCard class via OneToOne and Customers and Products are mapped with OneToMany,ManyToOne relationship, so each time Customer is saved into a databse, his Discount card and products he purchased are also saved in separated tables.
