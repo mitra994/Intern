@@ -6,23 +6,35 @@ public class GoldDiscountCard extends DiscountCard{
 
     private final String TYPE = "GOLD";
 
-    public GoldDiscountCard(Customer cardOwner, double lastMonthTurnover){
-        super(cardOwner,lastMonthTurnover);
+    public GoldDiscountCard(Customer cardOwner){
+        super(cardOwner);
+        super.setLastMonthTurnover(0);
 
-         if (lastMonthTurnover < 100){
-            setDiscountRate(2);
-        }else{
-            setDiscountRate(lastMonthTurnover/100 + 2);
-            if(getDiscountRate() > 10){
-                setDiscountRate(10);
-            }
-        }
 
     }
-
 
     @Override
     public String getCardType() {
         return TYPE;
+    }
+
+
+    @Override
+    protected void calculateDiscountRate(){
+
+        if (getLastMonthTurnover() < 100){
+            super.setDiscountRate(2);
+        }else{
+            super.setDiscountRate(getLastMonthTurnover()/100 + 2);
+            if(getDiscountRate() > 10){
+                super.setDiscountRate(10);
+            }
+        }
+    }
+    @Override
+    public void setTurnover(double turnover){
+        super.setLastMonthTurnover(turnover);
+        calculateDiscountRate();
+
     }
 }
