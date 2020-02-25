@@ -139,7 +139,7 @@ public class StoreController {
                 logedInCustomer.getPurchasesList().add(p);
 
             }
-            card.setTurnover(cartValue);
+             card.setTurnover(card.getTurnoverLastMonth()+cartValue);
             logedInCustomer.setDiscountCard(card);
             customerRepo.save(logedInCustomer);
         }
