@@ -19,7 +19,7 @@ public class Products {
     private String productName;
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="customer_fk")
      private Customers customer;
 
