@@ -54,11 +54,10 @@ public class CustomerController {
     public void switchCard(@RequestParam String cardType, HttpServletResponse response) throws IOException{
 
         PrintWriter writer = response.getWriter();
+        cardType= cardType.toLowerCase();
 
         DiscountCard oldCard = loggedInCustomer.getDiscountCard();
         DiscountCard newCard = new StoreUtility().getCardByType(cardType);
-
-        cardType= cardType.toLowerCase();
 
         if(newCard==null){
             writer.println("Invalid card type. Card type can only be bronze,silver or gold!");
